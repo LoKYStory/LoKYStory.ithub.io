@@ -1,20 +1,384 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Wedding</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Wedding | 2027.06.12</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Serif+KR:wght@300;400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f7f4ee;
+  color: #333;
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+.page {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fffdf9;
+  overflow: hidden;
+}
+
+/* 메인 */
+.hero {
+  min-height: 92vh;
+  padding: 80px 28px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.small-title {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #999;
+  margin-bottom: 35px;
+}
+
+.names {
+  font-family: 'DM Serif Display', serif;
+  font-size: 46px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.and {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 26px;
+  color: #aaa;
+  margin: 10px 0;
+}
+
+.date {
+  margin-top: 35px;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+.line {
+  width: 1px;
+  height: 55px;
+  background: #c9c1b6;
+  margin: 35px auto 0;
+}
+
+/* 사진 자리 */
+.main-photo {
+  height: 610px;
+  margin: 0 18px;
+  background:
+    linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.05)),
+    #e9e4dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-placeholder {
+  font-family: 'DM Serif Display', serif;
+  color: #aaa39a;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* 공통 섹션 */
+.section {
+  padding: 95px 32px;
+}
+
+.eng-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 27px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.sub-title {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #aaa;
+  margin-bottom: 42px;
+}
+
+.invitation {
+  font-size: 14px;
+  line-height: 2.25;
+  color: #555;
+}
+
+/* 웨딩데이 */
+.wedding-day {
+  background: #f2eee7;
+}
+
+.big-date {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px;
+  margin-bottom: 18px;
+}
+
+.time {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 35px;
+}
+
+.place {
+  font-size: 16px;
+  line-height: 2;
+}
+
+.place-small {
+  color: #888;
+  font-size: 12px;
+}
+
+/* 갤러리 */
+.gallery {
+  padding: 90px 18px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 35px;
+}
+
+.gallery-box {
+  height: 250px;
+  background: #e9e4dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa39a;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.gallery-box.wide {
+  grid-column: span 2;
+  height: 330px;
+}
+
+/* 위치 */
+.location {
+  padding: 90px 30px;
+}
+
+.address {
+  font-size: 13px;
+  line-height: 2;
+  color: #666;
+  margin: 25px 0 35px;
+}
+
+.map-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.map-button {
+  flex: 1;
+  max-width: 170px;
+  padding: 14px 8px;
+  border: 1px solid #cfc8be;
+  text-decoration: none;
+  color: #555;
+  font-size: 12px;
+}
+
+/* 마지막 */
+.footer {
+  background: #292826;
+  color: #f5f1e9;
+  padding: 110px 25px;
+}
+
+.footer-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  margin-bottom: 22px;
+}
+
+.footer-text {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #bbb5ac;
+}
+
+.copyright {
+  margin-top: 70px;
+  font-size: 9px;
+  color: #777;
+  letter-spacing: 1px;
+}
+</style>
 </head>
 
-<body style="text-align:center; padding-top:100px; font-family:sans-serif;">
 
-  <h1>WE'RE GETTING MARRIED</h1>
+<body>
 
-  <p>우리의 결혼식에 초대합니다.</p>
+<div class="page">
 
-  <h2>2027</h2>
+  <!-- 첫 화면 -->
+  <section class="hero">
+    <div class="small-title">OUR WEDDING</div>
 
-  <p>Wedding Invitation</p>
+    <div class="names">JIYOON</div>
+    <div class="and">&</div>
+    <div class="names">WOOCHI</div>
+
+    <div class="date">JUNE 12, 2027 · SATURDAY</div>
+
+    <div class="line"></div>
+  </section>
+
+
+  <!-- 메인 사진 -->
+  <div class="main-photo">
+    <div class="photo-placeholder">
+      OUR WEDDING PHOTO
+    </div>
+  </div>
+
+
+  <!-- 초대글 -->
+  <section class="section">
+    <div class="eng-title">Invitation</div>
+    <div class="sub-title">소중한 분들을 초대합니다</div>
+
+    <div class="invitation">
+      함께하는 평범한 하루가<br>
+      가장 좋은 기억이 되었습니다.<br><br>
+
+      이제 서로의 가장 가까운 사람으로<br>
+      같은 계절을 함께 걸어가려 합니다.<br><br>
+
+      저희 두 사람의 새로운 시작을<br>
+      따뜻한 마음으로 함께해 주세요.
+    </div>
+  </section>
+
+
+  <!-- 날짜 -->
+  <section class="section wedding-day">
+    <div class="eng-title">Wedding Day</div>
+    <div class="sub-title">우리의 특별한 날</div>
+
+    <div class="big-date">06.12</div>
+
+    <div class="time">
+      SATURDAY · 6:00 PM
+    </div>
+
+    <div class="place">
+      서울드래곤시티
+      <div class="place-small">
+        2027년 6월 12일 토요일 오후 6시
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 갤러리 -->
+  <section class="gallery">
+    <div class="eng-title">Our Moments</div>
+    <div class="sub-title">우리의 순간들</div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-box">
+        PHOTO 01
+      </div>
+
+      <div class="gallery-box">
+        PHOTO 02
+      </div>
+
+      <div class="gallery-box wide">
+        PHOTO 03
+      </div>
+
+      <div class="gallery-box">
+        PHOTO 04
+      </div>
+
+      <div class="gallery-box">
+        PHOTO 05
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 위치 -->
+  <section class="location">
+    <div class="eng-title">Location</div>
+    <div class="sub-title">오시는 길</div>
+
+    <div class="place">
+      서울드래곤시티
+    </div>
+
+    <div class="address">
+      서울특별시 용산구 청파로20길 95<br>
+      자세한 홀 정보는 추후 업데이트
+    </div>
+
+    <div class="map-buttons">
+      <a class="map-button"
+         href="https://map.naver.com/"
+         target="_blank">
+        NAVER MAP
+      </a>
+
+      <a class="map-button"
+         href="https://map.kakao.com/"
+         target="_blank">
+        KAKAO MAP
+      </a>
+    </div>
+  </section>
+
+
+  <!-- 마지막 -->
+  <footer class="footer">
+
+    <div class="footer-title">
+      J & W
+    </div>
+
+    <div class="footer-text">
+      OUR STORY BEGINS HERE.
+    </div>
+
+    <div class="copyright">
+      2027 · JIYOON & WOOCHI
+    </div>
+
+  </footer>
+
+</div>
 
 </body>
 </html>
