@@ -82,21 +82,13 @@ body {
 
 /* 사진 자리 */
 .main-photo {
-  height: 610px;
   margin: 0 18px;
-  background:
-    linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.05)),
-    #e9e4dc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+overflow: hidden;
 }
-
-.photo-placeholder {
-  font-family: 'DM Serif Display', serif;
-  color: #aaa39a;
-  font-size: 14px;
-  letter-spacing: 2px;
+.main-photo img{
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* 공통 섹션 */
@@ -256,6 +248,7 @@ body {
 
   <!-- 메인 사진 -->
   <div class="main-photo">
+    <img src="W1.jpg" alt="김용섭 금지윤">
     <div class="photo-placeholder">
       OUR WEDDING PHOTO
     </div>
