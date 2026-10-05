@@ -719,6 +719,8 @@ function updateMusicButton() {
 }
 
 function startMusic() {
+  if (!bgm.paused) return;
+
   bgm.play()
     .then(updateMusicButton)
     .catch(() => {
@@ -735,21 +737,14 @@ function toggleMusic() {
   }
 }
 
-/* 접속 즉시 자동재생 시도 */
+/* 페이지가 열리자마자 우선 자동재생 시도 */
 startMusic();
 
-/* 브라우저가 자동재생을 막은 경우
-   첫 터치/클릭 때 자동으로 재생 */
-function firstInteraction() {
-  if (bgm.paused) {
-    bgm.play().then(updateMusicButton).catch(() => {});
-  }
-  document.removeEventListener('touchstart', firstInteraction);
-  document.removeEventListener('click', firstInteraction);
-}
-
-document.addEventListener('touchstart', firstInteraction, { once: true });
-document.addEventListener('click', firstInteraction, { once: true });
+/* 자동재생이 차단된 브라우저는
+   사용자의 첫 행동과 동시에 재생 */
+['touchstart', 'touchmove', 'pointerdown', 'click'].forEach(event => {
+  document.addEventListener(event, startMusic, { once: true });
+});
 </script>
   
 </body>
