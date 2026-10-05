@@ -341,6 +341,28 @@ body {
   font-size: 13px;
   letter-spacing: 1px;
 }
+
+/* 배경음악 버튼 */
+.music-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+
+  padding: 8px 12px;
+  border: 1px solid rgba(120, 110, 100, 0.35);
+  border-radius: 20px;
+
+  background: rgba(255, 253, 249, 0.88);
+  color: #777;
+
+  font-family: 'Noto Serif KR', serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
   
 </style>
 </head>
@@ -679,5 +701,56 @@ function copyAccount(number) {
 
 </script>
 
+<!-- 배경음악 -->
+<audio id="bgm" src="wdsong1.mp3" autoplay loop preload="auto"></audio>
+
+<button id="musicBtn" class="music-btn" onclick="toggleMusic()">
+  ♫ ON
+</button>
+
+<script>
+const bgm = document.getElementById('bgm');
+const musicBtn = document.getElementById('musicBtn');
+
+bgm.volume = 0.45;
+
+function updateMusicButton() {
+  musicBtn.textContent = bgm.paused ? '♫ OFF' : '♫ ON';
+}
+
+function startMusic() {
+  bgm.play()
+    .then(updateMusicButton)
+    .catch(() => {
+      musicBtn.textContent = '♫ OFF';
+    });
+}
+
+function toggleMusic() {
+  if (bgm.paused) {
+    bgm.play().then(updateMusicButton);
+  } else {
+    bgm.pause();
+    updateMusicButton();
+  }
+}
+
+/* 접속 즉시 자동재생 시도 */
+startMusic();
+
+/* 브라우저가 자동재생을 막은 경우
+   첫 터치/클릭 때 자동으로 재생 */
+function firstInteraction() {
+  if (bgm.paused) {
+    bgm.play().then(updateMusicButton).catch(() => {});
+  }
+  document.removeEventListener('touchstart', firstInteraction);
+  document.removeEventListener('click', firstInteraction);
+}
+
+document.addEventListener('touchstart', firstInteraction, { once: true });
+document.addEventListener('click', firstInteraction, { once: true });
+</script>
+  
 </body>
 </html>
